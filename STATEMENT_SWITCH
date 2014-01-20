@@ -11,16 +11,13 @@ where
          |  0:case_condition<list>
          |     +:constant<constant>
          |     |
-         |     .
-         |     .
-         |     .
+         |     ...
          |  1:case_statement<stmt_list>
          |
          +:case<pair>
          |
-         .
-         .
-         .
+         ...
+
 
 
       
