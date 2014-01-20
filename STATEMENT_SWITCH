@@ -1,3 +1,31 @@
-SWITCH 
-ENDSWITCH
-   + 
+grammar 'switch_statement' is defined as following,
+    SWITCH condition<expr>
+        switch_body<list>
+    ENDSWITC
+
+where 
+   R:switch
+      0:condition<expr>
+      1:switch_body<list>:
+         +:case<pair>
+         |  0:case_condition<list>
+         |     +:constant<constant>
+         |     |
+         |     .
+         |     .
+         |     .
+         |  1:case_statement<stmt_list>
+         |
+         +:case<pair>
+         |
+         .
+         .
+         .
+
+
+      
+      
+    
+
+    
+    
