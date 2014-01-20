@@ -1,9 +1,11 @@
-grammar 'switch_statement' is defined as following,
+--------------------------------------------------
+switch_statement
+--------------------------------------------------
     SWITCH condition<expr>
         switch_body<list>
     ENDSWITC
-
-where 
+--------------------------------------------------
+tree structure
    R:switch
       0:condition<expr>
       1:switch_body<list>:
