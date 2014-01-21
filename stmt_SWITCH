@@ -6,22 +6,50 @@ switch_statement
     ENDSWITC
 --------------------------------------------------
 tree structure
-   R:switch
-      0:condition<expr>
-      1:switch_body<list>:
-         +:case<pair>
-         |  0:case_condition<list>
-         |     +:constant<constant>
-         |     |
-         |     ...
-         |  1:case_statement<stmt_list>
-         |
-         +:case<pair>
-         |
-         ...
+    R:switch
+        0:condition<expr>
+        1:switch_body<list>:
+            +:case<pair>
+            |   0:case_condition<list>
+            |      +:constant<constant>
+            |      |
+            |      ...
+            |   1:case_statement<stmt_list>
+            |
+            +:case<pair>
+            |
+            ...
 
+--------------------------------------------------
+    list list_0, list_1
+    
+    create_new_label lend
+   
+    cmp_value = condition
+    if (cmp_value is not a <id>)
+        list expr = expand_expr(cmp_value)
+        list_0.append_list(expr)
+        list_0.add(new_insn:'set cmp_value expr.back().lhs')
+   
+    foreach pair pp in switch_body
+        if (pp.first is empty)
+            stmt_list case_default = pp.second
+        
+        else
+            create_new_label l
+            foreach constant in pp.first
+                list_0.add(new_insn:'cmp cmp_value constant')
+                list_0.add(new_insn:'beq l')
 
-
+            list_1.add(new_insn:'set_label l')
+            list_1.add(pp.second)
+            list_1.add(new_insn:'goto lend')
+    
+    list_0.add(case_default)
+    list_0.add(new_insn:'goto lend')
+    
+    list_0.append(list_1)
+    list_0.add(new_insn:'set_label lend')
       
       
     
