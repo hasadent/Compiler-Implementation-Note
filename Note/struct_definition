@@ -1,0 +1,13 @@
+
+struct definition<list>
+    +:pair
+    |    0:type
+    |    1:member_of_type<list>
+    |        + member_name
+    |        |
+    |        + member_name
+    |        |
+    |        ...
+    +:pair
+    |
+    ...
