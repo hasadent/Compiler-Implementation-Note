@@ -1,0 +1,15 @@
+STACK
+
+--------------
+|   return   |
+|   value    |
+|------------|
+|            |
+|  arguments |
+|            |
+|------------|
+|   old $SP  |
+|------------|  <---- current $SP
+|    local   |
+|  variables |
+--------------
