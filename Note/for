@@ -1,0 +1,14 @@
+
+FOR <variable> = <value1>; <variable> < <value2>; <variable> += <value3>
+----
+
+    mov <variable>, <value1>
+FOR_ENTRY:
+    cmp <variable>, <value2>
+    bge FOR_EXIT
+FOR_BODY:
+
+    ...
+
+    add <variable>, <variable>, <value3>
+FOR_EXIT:
