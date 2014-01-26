@@ -3,7 +3,7 @@ switch_statement
 --------------------------------------------------
     SWITCH condition<expr>
         switch_body<list>
-    ENDSWITC
+    ENDSWITCH
 --------------------------------------------------
 tree structure
     R:switch
