@@ -1,15 +1,24 @@
-STACK
+simple function implementation
 
+function($return_value, $arg0, ...)
+--
+A call B
+
+STACK
+|------------|  
+| A's local  |
+| variables  |
 --------------
-|   return   |
-|   value    |
+| return     |
+| value      |
 |------------|
-|            |
-|  arguments |
-|            |
+| arguments  |
 |------------|
-|   old $SP  |
+| old $SP    |
 |------------|  <---- current $SP
-|    local   |
-|  variables |
+| B's local  |
+| variables  |
 --------------
+
+
+
