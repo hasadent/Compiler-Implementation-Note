@@ -8,17 +8,23 @@ STACK
 |------------|  
 | A's local  |
 | variables  |
---------------
+-------------- <---- old $SP
 | return     |
 | value      |
 |------------|
 | arguments  |
 |------------|
 | old $SP    |
-|------------|  <---- current $SP
+|------------|  
 | B's local  |
 | variables  |
---------------
+-------------- <---- current $SP
+
+$SP += 
+sizeof (B's return value)
+sizeof (B's arguments)
+sizeof ($SP)
+sizeof (B's local variables)
 
 
 
