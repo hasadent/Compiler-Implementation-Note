@@ -1,11 +1,13 @@
---------------------------------------------------
 switch_statement
 --------------------------------------------------
+grammer:
+
     SWITCH <expr: cond>
         <list: switch_body>
     ENDSWITCH
 --------------------------------------------------
-tree structure
+tree structure:
+
     R:<node: switch>
         0:<expr: cond>
         1:<list: switch_body>
@@ -21,6 +23,8 @@ tree structure
             ...
 
 --------------------------------------------------
+convertion:
+
     list list_0, list_1
     
     create_new_label lend
