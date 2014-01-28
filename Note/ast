@@ -1,0 +1,16 @@
+AST with n statements
+----
+
+
+                  stmt_list
+                   /     \
+            stmt_list   stmt:n-1
+             /     \
+      stmt_list   stmt:n-2
+        /
+      ...
+      /   
+   stmt_list
+    /     \
+  NULL   stmt:0
+  
