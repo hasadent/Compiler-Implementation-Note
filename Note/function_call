@@ -20,11 +20,11 @@ STACK
 | variables  |
 -------------- <---- current $SP
 
-$SP += 
-sizeof (B's return value)
-sizeof (B's arguments)
-sizeof ($SP)
-sizeof (B's local variables)
+$SP shift amount = 
+  sizeof (B's return value)
+  sizeof (B's arguments)
+  sizeof ($SP)
+  sizeof (B's local variables)
 
 
 
