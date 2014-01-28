@@ -1,22 +1,22 @@
 --------------------------------------------------
 switch_statement
 --------------------------------------------------
-    SWITCH condition<expr>
-        switch_body<list>
+    SWITCH <expr: cond>
+        <list: switch_body>
     ENDSWITCH
 --------------------------------------------------
 tree structure
-    R:switch
-        0:condition<expr>
-        1:switch_body<list>:
-            +:case<pair>
-            |   0:case_condition<list>
-            |      +:constant<constant>
+    R:<node: switch>
+        0:<expr: cond>
+        1:<list: switch_body>
+            +:<pair: case0>
+            |   case->first:<list: case_cond>
+            |      +:<constant: case_value>
             |      |
             |      ...
-            |   1:case_statement<stmt_list>
+            |   case->second:<stmt_list: case_stmt>
             |
-            +:case<pair>
+            +:<pair: case1>
             |
             ...
 
@@ -25,24 +25,26 @@ tree structure
     
     create_new_label lend
    
-    cmp_value = condition
+    cmp_value = cond
     if (cmp_value is not a <id>)
         list expr = expand_expr(cmp_value)
         list_0.append_list(expr)
         list_0.add(new_insn:'set cmp_value expr.back().lhs')
    
     foreach pair pp in switch_body
-        if (pp.first is empty)
-            stmt_list case_default = pp.second
+        if (pp->first is empty)
+            stmt_list case_default = pp->second
         
         else
-            create_new_label l
-            foreach constant in pp.first
-                list_0.add(new_insn:'cmp cmp_value constant')
-                list_0.add(new_insn:'beq l')
+            create_new_label lcase
+            
+            foreach <constant> c in pp->first
+                list_0.add(new_insn:'cmp cmp_value c')
+                list_0.add(new_insn:'beq lcase')
 
-            list_1.add(new_insn:'set_label l')
-            list_1.add(pp.second)
+            stmt_expand(pp->second)            
+            list_1.add(new_insn:'set_label lcase')
+            list_1.add(pp->second)
             list_1.add(new_insn:'goto lend')
     
     list_0.add(case_default)
