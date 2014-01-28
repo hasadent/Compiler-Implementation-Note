@@ -1,9 +1,13 @@
 case AND
+//-------
 // before 
+//-------
     expr_a AND expr_b
     if_then_else 'goto label_t' 'goto label_f'
-    
+
+//-------    
 // after 
+//-------
     expr_a
     if_then_else 'goto label_n' 'goto label_f'
 label_n:
@@ -11,11 +15,15 @@ label_n:
     if_then_else 'goto label_t' 'goto label_f'
 
 case OR
+//-------
 // before 
+//-------
     expr_a OR expr_b
     if_then_else 'goto label_t' 'goto label_f'
 
+//-------
 // after 
+//-------
     expr_a
     if_then_else 'goto label_t' 'goto label_n'
 label_n:
@@ -23,10 +31,15 @@ label_n:
     if_then_else 'goto label_t' 'goto label_f'
 
 case NOT
-// before 
+
+//-------
+// before
+//-------
     NOT expr_a
     if_then_else 'goto label_t' 'goto label_f'
-    
+
+//-------    
 // after 
+//-------
     expr_a
     if_then_else 'goto label_f' 'goto label_t'
