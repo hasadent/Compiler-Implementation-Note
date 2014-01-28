@@ -1,6 +1,11 @@
+for_statement
+--------------------------------------------------
+grammar
 
-FOR <variable> = <value1>; <variable> < <value2>; <variable> += <value3>
-----
+   FOR <variable> = <value1>; <variable> < <value2>; <variable> += <value3>
+   
+--------------------------------------------------
+after convertion:
 
     mov <variable>, <value1>
 FOR_ENTRY:
