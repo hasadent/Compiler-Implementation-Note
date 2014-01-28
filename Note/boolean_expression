@@ -1,3 +1,8 @@
+Boolean expression convertion
+--------------------------------------------------
+after convertion, all boolean expressions are
+replaced with compare instructions
+--------------------------------------------------
 case AND
 //-------
 // before 
@@ -31,7 +36,6 @@ label_n:
     if_then_else 'goto label_t' 'goto label_f'
 
 case NOT
-
 //-------
 // before
 //-------
