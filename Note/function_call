@@ -1,7 +1,11 @@
+stack during a function call
+--------------------------------------------------
+
 simple function implementation
 
 function($return_value, $arg0, ...)
---
+
+--------------------------------------------------
 A call B
 
 STACK
@@ -20,6 +24,8 @@ STACK
 | variables  |
 -------------- <---- current $SP
 
+
+--------------------------------------------------
 $SP shift amount = 
   sizeof (B's return value)
   sizeof (B's arguments)
